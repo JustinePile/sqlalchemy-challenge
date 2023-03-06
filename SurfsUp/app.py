@@ -40,7 +40,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    """List all available api routes."""
+    """List all available api routes"""
     return (
         f"<p><b>Available Routes:</b><br/><br/></p>"
         f"Precipitation analysis for last 12 months of data:<br/>"
@@ -56,6 +56,7 @@ def welcome():
 
 @app.route("/api/v1.0/precipitation")
 def precip():
+    """Precipitation analysis"""
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -89,6 +90,7 @@ def precip():
 
 @app.route("/api/v1.0/stations")
 def station():
+    """List of stations"""
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -107,6 +109,7 @@ def station():
 
 @app.route("/api/v1.0/tobs")
 def temp():
+    """Temp observ data for most active station"""
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -154,6 +157,7 @@ def temp():
 @app.route("/api/v1.0/<start>")
 @app.route("/api/v1.0/<start>/<end>")
 def temp_range(start, end=None):
+    """Min, max and avg temps for each station based on a date range"""
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
