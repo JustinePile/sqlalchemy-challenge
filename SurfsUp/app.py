@@ -161,8 +161,10 @@ def temp_range(start, end=None):
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
+    # Set start date to user input
     start_date = dt.datetime.strptime(start, "%Y-%m-%d")
 
+    # Set end date to user input, or today if no user input
     if end:
         end_date = dt.datetime.strptime(end, "%Y-%m-%d")
     else:
